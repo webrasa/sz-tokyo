@@ -39,7 +39,19 @@ const OverviewWrapper = styled(Box)(
 `
 );
 
+const fetchData = () => {
+  fetch('./api/users')
+    .then((data)=>{return data.json()})
+    .then((data)=>{console.log(data)})
+    .catch((error)=> {console.log(error)});
+}
+
 function Overview() {
+
+  useEffect(()=>{
+    fetchData();
+  }, []);
+
   return (
     <OverviewWrapper>
       <Head>
