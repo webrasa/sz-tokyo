@@ -1,3 +1,5 @@
+import type { GetStaticProps, NextPage } from 'next/types';
+
 import {
   Typography,
   Box,
@@ -6,7 +8,7 @@ import {
   Button,
   styled
 } from '@mui/material';
-import type { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import BaseLayout from 'src/layouts/BaseLayout';
 
 import Link from 'src/components/Link';
@@ -14,6 +16,9 @@ import Head from 'next/head';
 
 import Logo from 'src/components/LogoSign';
 import Hero from 'src/content/Overview/Hero';
+
+import prisma from '../lib/prisma';
+import { propsToClassKey } from '@mui/styles';
 
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `
